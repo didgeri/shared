@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+    <title>Daniel Ging Assignment 5</title>
+</head>
+<body>
+
+	<p id="CurrentSongInfo"> Song Info </p>
+
+    <p id="songListpics"> Song list </p>
+</body>
+
+
+<script type="text/javascript">
+let songs = [
+	{
+	  title: "Getting Away with It (All Messed Up)",
+	  artist: "James",
+	  album: "Pleased to Meet You",
+	  year: 2001,
+	  art: "https://upload.wikimedia.org/wikipedia/en/2/2a/JamesPleasedToMeetYou.jpg"
+	},
+	{
+	  title: "Renaissance Affair",
+	  artist: "Hooverphonic",
+	  album: "Blue Wonder Power Milk",
+	  year: 1998,
+	  art: "https://upload.wikimedia.org/wikipedia/en/1/17/Hooverphonic-Blue_Wonder_Power_Milk.jpg"
+	},
+	{
+	  title: "White Nights",
+	  artist: "Oh Land",
+	  album: "Oh Land",
+	  year: 2011,
+	  art: "https://upload.wikimedia.org/wikipedia/en/6/68/Oh_Land_(album).png"
+	}
+];
+    class Song
+	{
+      constructor(title, artist, album, year, art)
+	  {
+			this._title = title;
+			this._artist = artist;
+			this._album = album;
+			this._year = year;
+			this._art = art;
+		}
+	}
+var displaylist = "";
+
+  for (var x=0; x<songs.length; x++){
+    displaylist += '<img id="Img' + x + '" src="' + songs[x].art + '" width="150" height="150" onclick="clickAlbumFunction(' + x + ')"/><br>';
+    //let displaylist = new Song(songs[x].title, songs[x].artist, songs[x].album, songs[x].year, songs[x].art);
+}
+songListpics.innerHTML = displaylist;
+
+function clickAlbumFunction(index){
+	var song = songs[index];
+	CurrentSongInfo.innerHTML = "Title: " + song.title + "<br>Artist: " + song.artist + "<br>Album: " + song.album + "<br>Year: " + song.year + '<br><img src="' + song.art + '">';
+}
+
+</script>
